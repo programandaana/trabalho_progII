@@ -1,5 +1,6 @@
 
 
+import model.Moeda;
 import java.util.ArrayList;
 /**
  * @author evandmeyer
@@ -12,7 +13,7 @@ public class ListaMoeda {
         return listaMoeda;
     }
    
-   public void adicionaPessoa (Moeda moeda){
+   public void adicionaMoeda (Moeda moeda){
        listaMoeda.add(moeda);
    }
 }
