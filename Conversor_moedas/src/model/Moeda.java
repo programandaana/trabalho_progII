@@ -1,11 +1,11 @@
+package model;
+
 
 
 
 import java.util.ArrayList;
 import java.util.Date;
-/**
- * @author evandmeyer
- */
+
 public class Moeda {
     
     String data;
