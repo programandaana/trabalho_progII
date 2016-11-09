@@ -20,9 +20,9 @@ import java.util.Scanner;
  * @author visitante
  */
 public class Lista {
-    public List<Moeda> importaCSV(String nomearquivo) throws IOException, ParseException{
+   public List<Moeda> importaCSV(String nomearquivo) throws IOException, ParseException, Exception{
         
-        File csv = new File("file.csv");
+        File csv = new File(nomearquivo);
         List<Moeda> a=new ArrayList<Moeda>();      
             
             String lin = new String();
@@ -36,24 +36,22 @@ public class Lista {
                 String moeda =(campo[3]);
                 String compra=(campo[4].replace(",", "."));
                 String venda= (campo[5].replace(",", "."));  
-               
-                a.add(new Moeda(data, moeda, Float.parseFloat(compra), Float.parseFloat(venda)));
-                //System.out.println(new String[]{campo[0],campo[3],campo[4],campo[5]});
+                SimpleDateFormat formatter =  new SimpleDateFormat("ddMMyyyy");
+                Date date = formatter.parse(data);
+                                
+                a.add(new Moeda(formataData(date), moeda, Float.parseFloat(compra), Float.parseFloat(venda)));
             }        
         return a;
     }
 
-    public static Date formataData(String data) throws Exception { 
+    public static String formataData(Date data) throws Exception { 
 		if (data == null || data.equals(""))
 			return null;
-        Date date = null;
-        try {
-            DateFormat formatter = new SimpleDateFormat("ddMMyyyy");
-            date = (java.util.Date)formatter.parse(data);
-        } catch (ParseException e) {            
-            throw e;
-        }
-        return date;
-	}
+        Date date = data;
+        DateFormat dia;
+            dia = DateFormat.getDateInstance(DateFormat.LONG);
+            String a = dia.format(data);
+        return a;
+    }
 }
 
