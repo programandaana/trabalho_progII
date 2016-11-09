@@ -28,7 +28,7 @@ public class moedaTablemodel  extends AbstractTableModel {
     }
     @Override
     public int getColumnCount(){
-        return 5;
+        return 4;
     }
     @Override
     public String getColumnName (int column){

@@ -16,6 +16,14 @@ public class Moeda {
     public Moeda() {
     }
 
+    public Moeda(String data, String moeda, float compra, float venda) {
+        this.data = data;
+        this.moeda = moeda;
+        this.compra = compra;
+        this.venda = venda;
+    }
+    
+
     public String getData() {
         return data;
     }
