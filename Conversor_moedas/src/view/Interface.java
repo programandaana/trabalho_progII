@@ -24,11 +24,11 @@ public class Interface extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void atualizarTabela(List<Moeda> lista) throws ParseException {
+    public List<Moeda> atualizarTabela(List<Moeda> lista) throws ParseException {
 
         model = new moedaTablemodel(lista);
         jTable1.setModel(model);
-
+        return lista;
     }
 
     @SuppressWarnings("unchecked")
@@ -200,7 +200,7 @@ public class Interface extends javax.swing.JFrame {
                         String da = lista.get(i).getData();
                         Date dataComp = new Date(formata.parse(da).getTime());
 
-                        if (dataComp.after(data_inicio) && dataComp.before(data_fim)) {
+                        if ((dataComp.after(data_inicio)||dataComp.equals(data_inicio)) && (dataComp.before(data_fim)||dataComp.equals(data_fim))) {
                             lista.get(i);
 
                             filtro.add(new Moeda(lista.get(i).getData(), lista.get(i).getMoeda(), lista.get(i).getCompra(), lista.get(i).getVenda()));
