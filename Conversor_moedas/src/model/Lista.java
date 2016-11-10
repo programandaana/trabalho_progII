@@ -49,7 +49,7 @@ public class Lista {
 			return null;
         Date date = data;
         DateFormat dia;
-            dia = DateFormat.getDateInstance(DateFormat.LONG);
+            dia = DateFormat.getDateInstance(DateFormat.MEDIUM);
             String a = dia.format(data);
         return a;
     }
